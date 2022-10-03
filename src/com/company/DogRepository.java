@@ -32,6 +32,10 @@ public class DogRepository {
     }
     public List<Dog> getDogs(Dog.Pugination p){
         Stream<Dog> stream=this.dogs.stream();
+        // сортировка если указанна
+        if(p.getSortBy()!=null){
+            stream=
+        }
         // фильтр по возрасту (если задан)
         if(p.getFromAge()!=null){
             stream = stream.filter((dog)->dog.getAge() >= p.getFromAge());
@@ -41,6 +45,7 @@ public class DogRepository {
             stream = stream.filter((dog)->dog.getAge() <= p.getToAge());
 
         }
+        stream.sorted()
         return stream
                 .skip((p.getPage()-1)*p.getPerPage())
                 .limit(p.getPerPage())

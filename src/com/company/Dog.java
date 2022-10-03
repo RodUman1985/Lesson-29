@@ -1,6 +1,8 @@
 package com.company;
 
 
+import java.util.Comparator;
+
 public class Dog {
     private String name;
     private  int age;
@@ -45,7 +47,12 @@ public class Dog {
         private int perPage;
         private Integer fromAge=null;
         private Integer toAge=null;
+        private Comparator<Dog> sortBy=null;
 
+       public   Comparator<Dog> getSortBy(){
+           return sortBy;
+       }
+    }
         public int getPage() {
             return page;
         }
@@ -81,6 +88,9 @@ public class Dog {
             this.p.toAge=age;
             return this;
         }
+        public PuginationBuilder setSort(Integer age){
+            this.p.sortBy=age;
+            return this;
         public Pugination build(){
           return this.p;
         }

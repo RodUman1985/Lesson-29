@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Comparator;
 import java.util.LinkedList;
 
 public class Main {
@@ -27,6 +28,7 @@ public class Main {
             new Dog.PuginationBuilder(2,5)
              .setMinAge(2)
              .setMaxAge(5)
+                    .setSort((d1,d2)->Integer.compare(d2.getAge(),d2.getAge))
             .build()
     )
             .stream().forEach(System.out::println);
