@@ -21,7 +21,15 @@ public class Main {
                 .skip(2)// пропускает (удаляет) первые 2 элемента стрима
                 .limit(3)// после этой операции в stream останется первые 3 объектов
                 .map((Cat cat)-> new Dog(cat.getName(),cat.getAge(),"white")).forEach(System.out::println);
-
+        System.out.println("__________________________________________________________");
+    DogRepository repo =new DogRepository();
+    repo.getDogs(
+            new Dog.PuginationBuilder(2,5)
+             .setMinAge(2)
+             .setMaxAge(5)
+            .build()
+    )
+            .stream().forEach(System.out::println);
 
     }
 }

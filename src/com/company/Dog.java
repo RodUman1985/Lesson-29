@@ -78,7 +78,7 @@ public class Dog {
           }
 
         public PuginationBuilder setMaxAge(Integer age){
-            this.p.fromAge=age;
+            this.p.toAge=age;
             return this;
         }
         public Pugination build(){
